@@ -228,13 +228,17 @@ submit.addEventListener('click', function() {
             name: initials.value,
             score: score
         }); 
+        
+
+        highscorelist.sort(function(a, b) {
+            return parseFloat(b.score) - parseFloat(a.score);
+        });
+
         localStorage.setItem('highscore', JSON.stringify(highscorelist));
 
         hideAll();
         showScore();
-    // highscorelist.sort(function(a, b) {
-    //     return arseFloat(a.score) - parseFloat(b.score);
-    // });
+    
     };
     initials.value = '';
 });
@@ -242,45 +246,32 @@ submit.addEventListener('click', function() {
 
 // high score page display functionality
 function hiScoreList() {
-    
-    scoreDisplayList = '';
-
+    scoreDisplayList.innerHTML = '';
+    var n = 1;
     for (var i = 0; i < highscorelist.length; i++) {
 
         var ol = document.createElement('ol');
         var li = document.createElement("li");
-        var text = document.createTextNode(highscorelist[i].name + " ... " + highscorelist[i].score);
+        var text = document.createTextNode(n + '. '+ highscorelist[i].name + " ...... " + highscorelist[i].score);
 
         li.appendChild(text);
         ol.appendChild(li);
         scoreDisplayList.appendChild(ol);
-
+        n++;
       }
 
-    // highscorelist.forEach(element => {
-    //     var scoretable = document.createElement('tr');
-    //     var tablename = document.createElement('td');
-    //     tablename.textContent = element.name;
-    //     var tablescore = document.createElement('td');
-    //     tablescore.textContent = element.score;
-
-    //     scoretable.appendChild(tablename);
-    //     scoretable.appendChild(tablescore);
-
-    //     scoreList.appendChild(scoretable);      
-    // });
 };
 
 // [go back] button functionality
 back.addEventListener('click', function() {
-    scoreDisplayList = '';
+
     hideAll();
     showMain();
 });
 
 // [clear highscore] functionality
 clear.addEventListener('click', function() {
-    scoreDisplayList = '';
+    scoreDisplayList.innerHTML = '';
     localStorage.clear('highscore');
     highscorelist = [];
     showScore();  

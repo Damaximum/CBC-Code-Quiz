@@ -59,6 +59,10 @@ section p {
     margin: 10px auto;
 }
 
+section ol li {
+    text-align: center;
+}
+
 button {
     background-color: indigo;
     color: oldlace;
@@ -72,6 +76,10 @@ button {
 button:hover {
     color: black;
     background-color: darkmagenta;
+}
+
+#display-scores button {
+    margin-left: 35px;
 }
 
 /* main menu styling */
