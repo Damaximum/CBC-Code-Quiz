@@ -9,11 +9,10 @@ var questiondisplay = document.querySelector('#game-question');
 var choicedisplay = document.querySelector('#game-choices');
 var responsedisplay = document.querySelector('#game-response');
 var endgame = document.querySelector('#endgame');
-var finalscore = document.querySelector('#scorefinal');
 var intitials = document.querySelector('#initials');
 var submit = document.querySelector('#submit');
 var hiscoredisplay = document.querySelector('#display-scores');
-var scoreList = document.querySelector('#highscore-list');
+var scoreDisplayList = document.querySelector('#highscorelist');
 var back = document.querySelector('#back');
 var clear = document.querySelector('#clear');
 
@@ -209,6 +208,8 @@ function showQuiz() {
 
 function showEnd() {
     endgame.setAttribute('class', 'shown');
+    var finalscore = document.getElementById('scorefinal');
+    finalscore.textContent = score;
 };
 
 function showScore() {
@@ -216,18 +217,13 @@ function showScore() {
     hiScoreList();
 };
 
-// End screen functionality
-
-function finalScore() {
-    finalscore.innerHTML = score; 
-};
-
+// Submit button functionality at the end of game screen
 submit.addEventListener('click', function() {
     var noType = document.getElementById('noType');
-    var initcheck = typeof initials.value;
-    console.log(initcheck);
 
-    if (initcheck === 'string') {
+    if (initials.value === '') {
+        noType.textContent = 'You must input your initials!';
+    } else {
         highscorelist.push({
             name: initials.value,
             score: score
@@ -236,8 +232,6 @@ submit.addEventListener('click', function() {
 
         hideAll();
         showScore();
-    } else {
-        noType.textContent = 'You must input your initials!';
     // highscorelist.sort(function(a, b) {
     //     return arseFloat(a.score) - parseFloat(b.score);
     // });
@@ -246,9 +240,11 @@ submit.addEventListener('click', function() {
 });
 
 
-// high score page display functionality and highscore button functionality
+// high score page display functionality
 function hiScoreList() {
-    scorelist = '';
+    
+    scoreDisplayList = '';
+
     for (var i = 0; i < highscorelist.length; i++) {
 
         var ol = document.createElement('ol');
@@ -257,20 +253,34 @@ function hiScoreList() {
 
         li.appendChild(text);
         ol.appendChild(li);
-        scoreList.appendChild(ol);
+        scoreDisplayList.appendChild(ol);
+
       }
+
+    // highscorelist.forEach(element => {
+    //     var scoretable = document.createElement('tr');
+    //     var tablename = document.createElement('td');
+    //     tablename.textContent = element.name;
+    //     var tablescore = document.createElement('td');
+    //     tablescore.textContent = element.score;
+
+    //     scoretable.appendChild(tablename);
+    //     scoretable.appendChild(tablescore);
+
+    //     scoreList.appendChild(scoretable);      
+    // });
 };
 
 // [go back] button functionality
 back.addEventListener('click', function() {
-    scoreList = '';
+    scoreDisplayList = '';
     hideAll();
     showMain();
 });
 
 // [clear highscore] functionality
 clear.addEventListener('click', function() {
-    scoreList = '';
+    scoreDisplayList = '';
     localStorage.clear('highscore');
     highscorelist = [];
     showScore();  
