@@ -1,29 +1,108 @@
-* {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
+
+html,body{
+    font-family: 'Roboto', sans-serif;
+    /* height:100%; */
 }
 
+/* Header Style */
 header {
     width: 100%;
-    height: 200px;
+    height: 50px;
     display: flex;
-    justify-content: space-between;
     position: fixed;
-    background-color: violet;
+    background-color: darkslateblue;
     padding: 20px;
-    margin: 10px;
-};
-
-header ul li h1 {
     border: 2px;
-    border-radius: 8px;
-    list-style: none;
+    top: 0;
+}
+
+header nav {
+    width: 100%;
+    margin: 0 auto;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: row;
+    padding: 16px 30px;
+}
+
+/* Moving the main so things are visible */
+main {
+    margin-top: 100px;
 }
 
 #main-box {
-    width: 75%;
-    height: 60%;
-    border: 3px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: space-around;
+    min-height: calc(100% - 110px);
+}
+
+/* general styling */
+section {
+    max-width: 50%;
+    margin: 0 auto;
+    margin-top: 250px;
+}
+
+section h2 {
+    padding: 10px auto;
+    margin: 20px auto;
+    font-weight: bold;
+    font-size: 40px;
+}
+
+section p {
+    padding: 10px auto;
+    margin: 10px auto;
+}
+
+button {
+    background-color: indigo;
+    color: oldlace;
+    border: none;
+    padding:10px;
     border-radius: 8px;
+    cursor:pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    color: black;
+    background-color: darkmagenta;
+}
+
+/* main menu styling */
+#main-menu {
+    text-align: center;
+
+}
+
+#main-menu p {
+    padding: 10px auto;
+    margin: 10px auto;
+    font-weight: bolder;
+}
+
+#main-menu button {
+    font-weight: bolder;
+    padding: 10px auto;
+    margin: 10px auto;
+    font-size: larger;
+}
+
+/* Hiding other "screens" when not in use */
+.hidden {
+    display:none;
+}
+
+
+.invisible{
+    visibility:hidden;
+}
+
+@media only screen and (min-width: 768px) {
+
 }

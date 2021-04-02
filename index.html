@@ -4,37 +4,67 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="style/css" href="./assets/css/reset.css">
-    <link rel="stylesheet" type="style/css" href="./assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="./assets/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
     <title>Code Quiz Challenge</title>
 </head>
 <body>
     <header>
+        <!-- top of screen navigation and UI -->
         <nav>
-            <ul>
-                <li id="highscore"><h1><a>View Highscore</a></h1></li>
-                <li id="score"><h1>Score: </h1></li>
-                <li id="timer"><h1>Timer: </h1></li>
-            </ul>
+            <button id="highscore">View Highscore</button>
+            <h1 id="scoredisplay">Score: <span id="score">0</span></h1>
+            <h1 id="timerdisplay">Timer: <span id="timer">75</span></h1>
         </nav>
     </header>
     <main>
         <div id="main-box">
-            <div id="main-menu">
+            <!-- Defualt screen shown on load -->
+            <section id="main-menu">
                 <h2>
                     Coding Quiz Challenge
                 </h2>
                 <p>
                     Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your time by ten seconds, and reduce the amount of points you get.
                 </p>
-                <button> Start Game </button>
-            </div>
-            <div id="game-question"></div>
-            <div id="game-choices"></div>
-            <div id="game-response"></div>
+                <button id="start"> Start Game </button>
+            </section>
+            <!-- section to hold and display the game -->
+            <section id="gamecube">
+                <div id="game-question"></div>
+                <div id="game-choices"></div>
+                <div id="game-response"></div>
+            </section>
+
+            <!-- section to show the end of game screen -->
+            <section id="endgame">
+                <h2>
+                    Quiz Complete!
+                </h2>
+                <p> Your final score is: <span id="scorefinal"></span>
+                <br/>
+                Please enter your initials: <input id="initials" type="text"> <button id="submit"> Submit </button>
+                </br>
+                <span id="noType"></span>
+                </p>
+            </section>
+            <!-- section to display the highscores -->
+            <section id="display-scores">
+                <h2> Highscores </h2>
+                <div id="highscore-list">
+
+                </div>
+                <button id="back"> 
+                    Go Back 
+                </button> 
+                <button id="clear">
+                    Clear Scores
+                </button>
+            </section>
+
         </div>
-        <div id="highscore-list"></div>
+        
     </main>
-    <script src="script.js"></script>
+    <script src="./assets/js/script.js"></script>
 </body>
 </html>
