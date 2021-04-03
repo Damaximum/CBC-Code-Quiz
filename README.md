@@ -15,7 +15,7 @@ Webpage: https://damaximum.github.io/CBC-Code-Quiz/
 ## Screenshots
 
 Quiz Starting Page:
-![Alt text](./screenshots/1-Start?raw=true "Quiz Start Page")
+![Alt text](./screenshots/1-Start.png?raw=true "Quiz Start Page")
 
 Quiz Questions and Choices:
 ![Alt text](./screenshots/2-Quiz.png?raw=true "Quiz Questions and Choices")
