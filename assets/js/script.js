@@ -87,7 +87,7 @@ function setTime() {
     }, 1000);
 };
 
-// shuffles the array of questions via  Durstenfeld shuffle
+// shuffles the array of questions via Durstenfeld shuffle
 function randomQ(myQuestions2) {
     var myQuestions2 = myQuestions;
     for (var i = myQuestions2.length - 1; i > 0; i--) {
@@ -176,7 +176,7 @@ function updateScore() {
 
 // start button functionality.
 start.addEventListener('click', function() {
-    console.log('start');
+    // console.log('start');
     questionnum = 0;
     score = 0;
     timer = 75;

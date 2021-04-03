@@ -24,7 +24,7 @@ header nav {
     align-items: center;
     justify-content: space-around;
     flex-direction: row;
-    padding: 16px 30px;
+    padding: 16px 0px;
 }
 
 /* Moving the main so things are visible */
@@ -106,11 +106,22 @@ button:hover {
     display:none;
 }
 
-
-.invisible{
-    visibility:hidden;
-}
-
-@media only screen and (min-width: 768px) {
-
+@media only screen and (max-width: 768px) {
+    header {
+        height: 30px;
+        padding: 10px;
+        padding-left: 0px;
+    }
+    header nav {
+        padding-left: 0px;
+    }
+    header nav button {
+        margin: 0px;
+    }
+    main {
+        margin-top: 50px;
+    }
+    section {
+        margin-top: 150px;
+    }
 }
